@@ -1,0 +1,12 @@
+  // 부드러운 스크롤
+  const lenis = new Lenis();
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);   
+
+
+  // Animation On Scroll 플러그인 실행
+  AOS.init();

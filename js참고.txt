@@ -1,0 +1,15 @@
+$(".swiper-toggle").on("click", function () {
+
+    if (swiper.autoplay.running) {
+
+      swiper.autoplay.stop();
+      $(this).text("▶");
+
+    } else {
+
+      swiper.autoplay.start();
+      $(this).text("❚❚");
+
+    }
+
+  });

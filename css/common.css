@@ -1,0 +1,339 @@
+@charset 'utf-8';
+/* 웹폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css');
+
+/* 변수 */
+:root {
+  --grey-dark: #222;
+  --primary-color: #0114a7;
+  --secondary-color: #4262FF;
+  --hover-color: #8498ff;
+  --primary-font: 'Poppins', 'Pretendard Variable', sans-serif;
+  --primary-grd: rgba(1, 20, 167, 1) 0%, rgba(1, 20, 167, 0) 100%;
+}
+
+/* 초기화 */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+*:before, *:after {
+  box-sizing: border-box;
+}
+body {
+  background-color: #e0e0f0;
+  font-family: var(--primary-font);
+  /* background-color: #fff; */
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--grey-dark);
+}
+body.fixed { 
+  overflow: hidden; 
+}
+ol, ul {
+  list-style-type: none;
+}
+a {
+  color: var(--grey-dark);
+  text-decoration: none;
+}
+p {
+  margin: 1em 0;
+}
+img, video {
+  vertical-align: middle;
+}
+input, select, textarea, button {
+  font-family: var(--primary-font);
+  font-size: 1em;
+  color: var(--grey-dark);
+}
+button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* 공용클래스(자주 사용하는 디자인) */
+.wrap {
+  max-width: 1600px;
+  padding: 0 16px;
+  margin: auto;
+  /* border: 1px solid #000; */
+}
+.wrap-s {
+  max-width: 1080px; 
+  padding: 0 16px;
+  margin: auto;
+}
+.sound-only { 
+  position: absolute;
+  left: -9999em;
+}
+.btn {
+  padding: 0.5em 1.2em;
+  border-radius: 6px;
+  background-color: var(--secondary-color);
+  color: #fff;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.btn:hover {
+  background-color: var(--hover-color);
+}
+.btn-dark {
+  background-color: var(--primary-color);
+}
+.p0 {
+  padding: 0 !important;
+}
+.m0 {
+  margin: 0 !important;
+}
+
+
+/* 바로가기 메뉴 */
+#skip-menu {
+  position: fixed;
+  left: calc(50% - 80px);
+  top: 0;
+  width: 160px;
+}
+#skip-menu a {
+  position: absolute;
+  left: 0;
+  top: -54px;
+  width: 100%;
+  line-height: 54px;
+  text-align: center;
+  background-color: var(--secondary-color);
+  color: #fff;
+  transition: 0.3s;
+}
+#skip-menu a:focus {
+  top: 5px;
+  outline: 0;
+}
+
+/* 헤더영역 */
+#kbank-hd {
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+  transition: 0.6s;
+}
+#kbank-hd.dark .logo a {
+  background-image: url('../images/logo_wh.svg');
+}
+#kbank-hd.dark .depth1 > a {
+  color: #fff;
+}
+#kbank-hd.fixed {
+  position: fixed;
+  background-color: #fff;
+  transform: translateY(0);
+}
+#kbank-hd.hide {
+  transform: translateY(-100%);
+}
+.hd-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 0;
+  background-color: #fff;
+  z-index: -1;
+  transition: 0.3s;
+}
+.hd-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.logo {/* 로고의 비율을 100:24, 부모가 너비-자식은 pt %로 설계 */
+  width: 100px;
+}
+.logo a {
+  display: block;
+  padding-top: 24%; /* padding과 margin은 부모 너비에 비례 */
+  background: url('../images/logo.svg') left center / contain no-repeat;
+}
+
+/* gnb */
+#gnb {}
+.kbank-gnb {
+  position: relative;
+  display: flex;
+  font-weight: 500;
+}
+.depth1 {}
+.depth1 > a {
+  display: block;
+  padding-right: 2.5em;
+  font-size: 1.15em;
+  line-height: 56px;
+}
+.depth2 {
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 56px;
+  width: 100%;
+  padding: 48px 0 24px;
+}
+.depth1.active > a {
+  color: var(--secondary-color) !important;
+}
+.depth1.active .depth2 {
+  display: flex;
+}
+.depth1.disable .depth2 {
+  display: none;
+}
+.depth2 > li {
+  width: 16.66%;
+}
+.depth2 > li > span {
+  display: block;
+  margin-bottom: 1em;
+  font-size: 0.9em;
+  color: #808080;
+}
+.depth3 {}
+.depth3 > li {}
+.depth3 > li > a {
+  display: block;
+  padding: 0.8em 0;
+}
+.depth3 > li > a:hover {
+  color: var(--secondary-color);
+}
+
+.btn-app-download {}
+
+/* 푸터 */
+#kbank-ft {
+  padding: 4em 0;
+  background-color: #F7F8FB;
+  color: #666;
+  font-size: 0.9em;
+}
+.ft-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+}
+.ft-container h3 {
+  margin-bottom: 0.5em;
+  font-size: 1.2em;
+}
+.ft-container a {
+  color: #666;
+}
+.ft-customer {}
+.ft-customer dl {
+  display: flex;
+  gap: 1em;
+  font-weight: 500;
+}
+.ft-customer div {}
+.ft-customer div > * {
+  display: inline-block; /* 가로로 나열되는 블럭 */
+}
+.ft-customer dt {
+  padding: 0 0.5em 0 0.8em;
+}
+.ft-customer dd {}
+.ft-menu {}
+.ft-menu ul {
+  display: flex;
+  gap: 2em;
+  padding-left: 0.8em;
+}
+.ft-menu li {}
+.ft-bn-sns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  order: 4;
+}
+.ft-certification {}
+.ft-certification img {
+  width: 80px;
+  margin-right: 1em;
+  filter: grayscale(1);
+  transition: 0.3s;
+}
+.ft-certification img:hover {
+  filter: grayscale(0);
+}
+.ft-sns {
+  display: flex;
+  gap: 0.5em;
+  font-size: 1.5em;
+}
+.ft-sns a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: #8694B1;
+  color: #fff;
+  border-radius: 50%;
+}
+.ft-sns a span {
+  line-height: 0;
+}
+.ft-info {}
+.ft-info dl {
+  display: flex;
+  gap: 2em;
+  margin-bottom: 0.5em;
+}
+.ft-info div {}
+.ft-info div > * {
+  display: inline-block;
+}
+.gototop { /* 위로가기 */
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 2rem;
+  background-color: var(--primary-color);
+  z-index: 10;
+}
+.gototop:before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border: 2px solid #fff;
+  border-width: 2px 2px 0 0;
+  transform: translate(-50%, calc(-50% - 3px)) rotate(-45deg);
+}
+.gototop:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2px;
+  height: 26%;
+  background-color: #fff;
+  transform: translate(-50%,-50%);
+}

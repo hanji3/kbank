@@ -1,0 +1,743 @@
+@charset 'utf-8';
+#kbank-main {}
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.section > div {
+  padding-top: 60px;
+}
+.section h2 {
+  font-size: 3.5em;
+}
+.main-contents {}
+.main-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+  align-items: center;
+}
+
+/* 1. 히어로 */
+.main-section-hero {
+  display: block;
+  height: auto;
+}
+.main-section-hero .main-wrap {
+  display: block;
+}
+.main-contents-hero {
+  display: flex;
+  gap: 24px;
+  height: 800px;
+}
+.main-hero-wrap {
+  position: relative;
+  width: 69%;
+  color: #fff;
+  border-radius: 32px;
+  overflow: hidden;
+}
+.main-hero {
+  position: absolute;
+  left: 0%;
+  top: 0;
+  display: flex;
+  width: 300%;
+  height: 100%;
+  transition: 1s;
+}
+.main-hero-item {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  width: calc(100% / 3);
+  height: 100%;
+  padding: 80px;
+  background: url('../images/img_section1_main-card1.jpg') center center / cover no-repeat;
+  z-index: 1;
+}
+.hero-bg1 {background-image: url('../images/img_section1_main-card1.jpg');}
+.hero-bg2 {background-image: url('../images/img_section1_main-card2.jpg');}
+.hero-bg3 {background-image: url('../images/img_section1_main-card3.jpg');}
+
+/* 다중 배경 속성 Multiple background */
+/*
+.hero-bg1 {
+  background: 
+    linear-gradient(0deg, rgba(1, 20, 167, 1) 0%, rgba(1, 20, 167, 0) 100%) left bottom / 100% 40% repeat-x,
+    url('../images/img_section1_main-card1.jpg') center center / cover no-repeat;
+}
+*/
+
+.main-hero-item:before {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50%;
+  content: '';
+  background-image: linear-gradient(0deg, var(--primary-grd));
+  z-index: -1;
+  opacity: 0.8;
+}
+
+
+.main-hero-inner {}
+.main-hero-inner h3 {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.main-hero-inner div {
+  margin: 0.5em 0 2em;
+  font-size: 20px;
+  font-weight: 500;
+}
+.main-hero-inner a {
+  display: inline-block;
+  background-color: var(--primary-color);
+  box-shadow: 0 0  8px rgba(255,255,255,0.3);
+}
+
+.main-hero-pagination {
+  position: absolute;
+  right: 80px;
+  bottom: 80px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  z-index: 100;
+}
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background-color: transparent;
+  opacity: 1;
+  cursor: pointer;
+}
+.swiper-pagination-bullet-active {
+  background-color: #fff;
+}
+.swiper-toggle {
+  color: #fff;
+  transform: scale(0.8);
+}
+:root {
+  --swiper-theme-color: #fff;
+}
+
+.swiper-button-prev, .swiper-button-next {
+  transform: scale(0.7);
+}
+
+/* 메인 배너 */
+.main-banner-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: calc(31% - 24px);
+}
+.hero-banner {
+  position: relative;
+  flex-basis: calc((100% - 24px) / 2);
+  border-radius: 36px;
+  overflow: hidden;
+}
+.hero-banner1 {
+  background: url('../images/img_section1_side-card-1.png') center center / cover no-repeat;
+}
+.hero-banner2 {
+  background: var(--primary-color) url('../images/img_section1_side-card-2.png') center center / auto 34% no-repeat;
+}
+.hero-banner > span {
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  color: #fff;
+  font-size: 1.8em;
+  font-weight: 700;
+  transition: 0.3s;
+}
+.default {
+  display: flex;
+  align-items: flex-end;
+}
+.cover {
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: rgba(0,0,0,0.7);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+}
+.hero-banner:hover .cover {
+  opacity: 1;
+}
+.btn-circle-arrow {
+  position: relative;
+  display: block;
+  width: 48px;
+  height: 48px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  text-indent: -9999em; /* 첫줄 들여쓰기 */
+}
+.btn-circle-arrow:before, .btn-circle-arrow:after {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  content: '';
+}
+.btn-circle-arrow:before {
+  width: 20px;
+  height: 1px;
+  background-color: #fff;
+  transform: translate(-50%, -50%);
+}
+.btn-circle-arrow:after {
+  width: 14px;
+  height: 14px;
+  border: 1px solid #fff;
+  border-width: 0 1px 1px 0;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.hero-banner1 .cover {
+  justify-content: space-between;
+  line-height: 48px;
+}
+.hero-banner2 .cover {
+  flex-direction: column;
+  gap: 0.5em;
+  align-items: center;
+  text-align: center;
+}
+
+/* 2. 돈 모으기 */
+.main-section-money {
+  background-color: #4982BF;
+}
+.h2-ani {
+  display: flex;
+  gap: 0.2em;
+  color: #fff;
+  z-index: 1;
+}
+.h2-ani > span {
+    padding: 0 0.4em;
+}
+.fade {
+  position: relative;
+}
+.wh-box { /* 흰 박스 */
+  position: absolute;
+  right: 0;
+  top: 0;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.9);
+  border-radius: 8px;
+  z-index: -1;
+}
+.to-top {}
+.main-section-money .fade {
+  color: #4982BF;
+}
+.main-contents-money {}
+.col2, .col3, .col4 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+}
+.round-box > * {
+  padding: 50px 40px;
+  background-color: #fff;
+  border-radius: 24px;
+}
+.col2 > * {
+  width: calc((100% - 1.5em) / 2);
+}
+.col3 > * {
+  width: calc((100% - 3em) / 3);
+}
+.col4 > * {
+  width: calc((100% - 4.5em) / 4);
+}
+.round-box a {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+.main-contents h3 {
+  font-size: 2em;
+  line-height: 1.4;
+}
+.main-contents-money h3 span {
+  color: var(--secondary-color);
+}
+.main-contents .txt {}
+.img {}
+.img img {
+  width: 100%;
+}
+/* 3. 카드 혜택 */
+.main-section-benefit {
+  padding-top: 100px;
+  background: #000 url('../images/img_section3_bg-stars.webp') center center/cover no-repeat;
+  overflow: hidden;
+}
+.main-section-benefit .fade {
+  color: #000;
+}
+.main-contents-benefit {
+  position: relative;
+}
+.benefit {
+  width: 760px;
+  height: calc(100vh - 232px);
+  object-fit: cover;
+  object-position: center top;
+}
+.benefit-dl {
+  position: absolute;
+  left: 0;
+  bottom: 80px;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+}
+.benefit-dl dt {
+  font-size: 2em;
+  font-weight: 700;
+}
+.benefit-dl dd {}
+
+
+/* 4. 이자생활 */
+.main-section-interest {
+  background-color: #7354B2;
+}
+.main-section-interest .fade {
+  position: relative;
+  color: #7354B2;
+}
+.main-contents-interest h3 span {
+  color: #650bda;
+}
+
+/* 5. 저축 */
+.main-section-savings {
+  background-color: #3D7047;
+}
+.main-section-savings .main-wrap, .main-section-service .main-wrap {
+  flex-direction: row;
+}
+.main-section-savings .h2-ani, .main-section-service .h2-ani {
+  flex-direction: column;
+  align-items: flex-start;
+  width: calc(100% - 562px);
+}
+.main-section-savings .to-top, .main-section-service .to-top {
+  padding: 0;
+}
+.main-section-savings .fade {
+  color: #3D7047;
+}
+.main-contents-savings, .main-contents-service {
+  width: 562px;
+}
+.main-wrap-savings {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 0 6px rgba(0,0,0,0.5);
+}
+.main-savings {}
+.savings-item {
+  position: relative;
+  overflow: hidden;
+}
+.savings-video {
+  width: 562px;
+  height: 720px;
+  object-fit: cover;
+}
+.savings-item dl {
+  position: absolute;
+  left: 64px;
+  bottom: 64px;
+  color: #fff;
+}
+.savings-item dt {
+  font-size: 2.8em;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.5em;
+}
+.savings-item dd {}
+.main-savings-pagination {
+  position: absolute;
+  right: 64px;
+  bottom: 64px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  z-index: 100;
+}
+
+/* 6. 서비스 */
+.main-section-service {
+  background-color: #4982BF;
+}
+.main-section-service .fade {
+  color: #4982BF;
+}
+.main-contents-service {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  padding: 48px;
+  padding-bottom: 0;
+  background-color: #E0E6F1;
+  border-radius: 24px;
+}
+.main-contents-service strong {
+  font-size: 2.7em;
+  line-height: 1.4;
+  color: #000;
+  letter-spacing: -1px;
+}
+.main-contents-service strong span {
+  color: #4982BF;
+}
+.main-contents-service img {
+  width: 100%;
+}
+
+/* 7. 대출 */
+.main-section-loan {
+  background-color: #2F1D71;
+}
+.main-section-loan .fade {
+  color: #2F1D71;
+}
+.main-contents-loan {}
+.main-contents-loan li {
+  height: 584px;
+  background-color: #E6EBFF;
+  overflow: hidden;
+}
+.main-contents-loan li:nth-child(2) a {
+  justify-content: space-between;
+  height: 100%;
+}
+.main-contents-loan strong {
+  font-size: 2.7em;
+  line-height: 1.3;
+  color: #000;
+}
+.main-contents-loan strong span {
+  color: #3A00AB;
+}
+.main-contents-loan img {
+  width: 70%;
+  margin: auto;
+  border: 3px solid #000;
+  border-radius: 24px;
+}
+.main-loan-owner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+  align-items: flex-start;
+}
+.main-loan-owner span {
+  /* background-color: #ddd; */
+}
+.main-loan-owner span:nth-child(1) {
+  position: relative;
+}
+.main-loan-owner span:nth-child(1):after {
+  position: absolute;
+  right: 0;
+  top: 0;
+  content: '…';
+  width: 48px;
+  height: 48px;
+  border: 4px solid #E6EBFF;
+  color: #fff;
+  font-size: 2em;
+  line-height: 20px;
+  text-align: center;
+  background-color: #3A00AB;
+  border-radius: 50%;
+}
+.main-loan-owner span:nth-child(2) {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+.main-loan-owner span:nth-child(3) {
+  font-size: 3.6em;
+  font-weight: 700;
+  color: #000;
+  line-height: 1.3;
+}
+.main-loan-owner span:nth-child(4) {
+  color: #666;
+}
+.main-loan-owner img {
+  width: auto;
+  height: 48px;
+  border: 0;
+  border-radius: 0;
+}
+
+/* 8. 스토리 */
+.main-section-story {
+  background-color: #17191E;
+}
+.main-wrap {
+  width: 100%;
+}
+.fade {
+  color: #17191E;
+}
+.main-contents-story {
+  width: 100%;
+  padding-left: calc((100% - 1600px) / 2);
+  /* border: 10px solid #f00; */
+}
+.main-wrap-story {
+  overflow: hidden;
+}
+.main-story {
+  display: flex;
+  width: 100%;
+  padding: 32px 0;
+  /* border: 5px solid #ff0; */
+}
+.story-item {
+  width: 640px;
+  padding-right: 24px;
+}
+.story-item a {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+.story-item dt {
+  order: 2;
+  font-size: 1.8em;
+  font-weight: 700;
+}
+.story-item dd:nth-child(2) {
+  order: 3;
+  color: #E0E0F0;
+}
+.story-item dd:nth-child(3) {
+  order: 1;
+  padding-bottom: 2em;
+}
+.story-item dd:nth-child(3) img {
+  width: 100%;
+  border-radius: 24px;
+}
+.story-progressbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding-right: calc(100% - 1600px);
+  margin-top: 16px;
+}
+.story-progressbar {
+  position: relative;
+  width: calc(100% - 180px);
+  height: 6px !important;
+  background-color: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.story-progressbar .swiper-pagination-progressbar-fill {
+  background-color: var(--secondary-color);
+  border-radius: 3px;
+}
+.story-controls {
+  position: relative;
+  width: 160px;
+  height: 64px;
+}
+.story-controls button {
+  
+}
+.story-button-prev {
+  transform: scaleX(-1);
+}
+.story-controls button span {
+  font-size: 64px;
+  color: #fff;
+}
+
+/* 9. 케이뱅크 앱 */
+.main-section-app {
+  height: inherit;
+  padding: 160px 0;
+}
+.main-contents-app {
+  text-align: center;
+}
+.app-img {
+  width: 160px;
+  margin: 0 auto 2em;
+  background-color: var(--primary-color);
+  border-radius: 20%;
+  box-shadow: 0 0 30px var(--primary-color);
+}
+.app-img img {
+  width: 100%;
+}
+.app-txt {
+  font-size: 2.4em;
+  font-weight: 700;
+  color: #000;
+  line-height: 1.4;
+}
+
+/* 애니메이션 추가 */
+.animate {
+  opacity: 0;
+  transition: 1s ease;
+}
+.fade-up {
+  transform: translateY(60px);
+}
+.fade-down {
+  transform: translateY(-60px);
+}
+.fade-left {
+  transform: translateX(60px);
+}
+.fade-right {
+  transform: translateX(-60px);
+}
+.zoom-in {
+  transform: scale(0.5);
+}
+.blur {
+  filter: blur(24px);
+  transition: 0.5s ease;
+}
+.animate.active {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* 풀페이지 */
+#fp-nav ul li a span, .fp-slidesNav ul li a span {
+  background-color: #222;
+}
+.dark #fp-nav ul li a span, .dark .fp-slidesNav ul li a span {
+  background-color: #fff;
+}
+#fp-nav ul li .fp-tooltip {
+  color: #222;
+  font-family: inherit;
+}
+.dark #fp-nav ul li .fp-tooltip {
+  color: #fff;
+}
+#fp-nav-hor {
+  position: absolute;
+  left: 20px;
+  bottom: 40px;
+  z-index: 10;
+  display: flex;
+  gap: 1em;
+  padding: 0.6em 1.5em 0.6em 1em;
+  background-color: var(--primary-color);
+  border-radius: 32px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+#fp-nav-hor a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+  color: #f0f0f0;
+}
+#fp-nav-hor a:before { /* 동그라미 */
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+}
+#fp-nav-hor a:first-child:before { /* 홈 아이콘 */
+  width: 28px;
+  height: 28px;
+  border-radius: 0;
+  background: url('../images/home_wh.svg') center center / cover no-repeat;
+}
+#fp-nav-hor a:after { /* 가로선 */
+  content: '';
+  width: 24px;
+  height: 1px;
+  background-color: #f0f0f0;
+  display: none;
+}
+#fp-nav-hor a.active:before, #fp-nav-hor a.active:after {
+  display: block;
+}
+#fp-nav-hor a:first-child.active:before {
+  background-color: transparent;
+}
+#fp-nav-hor a .label {
+  display: none;
+}
+#fp-nav-hor a.active .label {
+  display: block;
+}
+#fp-nav-hor a:first-child:before {
+  background-image: url('../images/home_wh.svg');
+}
+#fp-nav-hor a.active .label {
+  /* color: var(--primary-color); */
+}
+#fp-nav-hor a.active:after {
+  /* background-color: var(--primary-color); */
+}
+.light #fp-nav-hor {
+  background-color: #fff;
+}
+.light #fp-nav-hor a {
+  color: var(--primary-color);
+}
+.light #fp-nav-hor a:before { /* 동그라미 */
+  background-color: var(--primary-color);
+}
+.light #fp-nav-hor a:after { /* 가로선 */
+  background-color: var(--primary-color);
+}
+.light #fp-nav-hor a:first-child:before {
+  background-color: transparent;
+  background-image: url('../images/home.svg');
+}
+
+.main-section-ft {
+  padding: 4em 0 !important;
+  background-color: #F7F8FB;
+  color: #666;
+  font-size: 0.9em;
+}
+.main-section-ft > div {
+  padding: 0;
+}
